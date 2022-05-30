@@ -4,6 +4,8 @@
 # RPyC client
 
 import rpyc
+import time
+import sys
 
 def main():
     while True:
@@ -28,6 +30,13 @@ def main():
 
         elif first_split[0] == "get":
             print(proxy.root.exeCommand(input_msg))
+
+        elif first_split[0] == "quit":
+            proxy.root.exeCommand(input_msg)
+            # time.sleep(1)
+            # print("client shutdown...")
+            sys.exit(0)
+
 
         # fileobj = open('testfile.txt')
         # linecount = proxy.root.line_counter(fileobj, noisy)
